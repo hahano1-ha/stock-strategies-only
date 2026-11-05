@@ -1,10 +1,15 @@
 name: V3 Daily Signal
 
 on:
-  schedule
+  schedule:
     # Taiwan time 14:00 = UTC 06:00, after market close.
-    - cron: "10 00 * * 1-5"
+    - cron: '0 6 * * 1-5'
   workflow_dispatch:
+
+jobs:
+  run-signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
 jobs:
   run-signal:
